@@ -15,21 +15,24 @@ import java.util.List;
  * Time: 8:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public class PanelItems extends JPanel implements ItemsListener{
-    private PanelItemsModel model;
+public class PanelItems extends JPanel{
+    private DefaultListModel model;
     private JPanel searchPanel;
     private JPanel listPanel;
+    private ItemList itemList;
 
     private JButton buttonSearch;
     private JTextField fieldSearch;
 
-    public PanelItems(PanelItemsModel model) {
+    public PanelItems(DefaultListModel model) {
         this.model = model;
+        itemList = new ItemList();
+        itemList.setModel(model);
+        itemList.setModel(this.model);
         initComponents();
         initLayouts();
         initActions();
 
-        model.addListener(this);
     }
 
     private void initComponents() {
@@ -45,7 +48,8 @@ public class PanelItems extends JPanel implements ItemsListener{
         searchPanel.add(buttonSearch);
 
 
-        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
+//        listPanel.setLayout(new MigLayout("fill"));
+        listPanel.add(itemList);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.add(listPanel);
@@ -60,16 +64,14 @@ public class PanelItems extends JPanel implements ItemsListener{
 
     }
 
-    public PanelItemsModel getModel() {
-        return model;
-    }
 
-
-    public void onNewItem(TextItem item) {
+    public void addNewItem(TextItem item) {
         Item comp = new Item(5, 20);
         comp.setSize(100, 50);
         comp.setPreferredSize(new Dimension(100, 50));
-        listPanel.add(comp);
+
+        System.out.println("element added");
+        ((DefaultListModel)(itemList.getModel())).add(0,"sdfasdfasdf");
         listPanel.validate();
     }
 }

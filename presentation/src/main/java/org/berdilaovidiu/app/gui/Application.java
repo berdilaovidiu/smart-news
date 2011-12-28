@@ -21,7 +21,8 @@ public class Application extends JFrame{
     private JPanel panelDetails;
 
     public Application() throws HeadlessException {
-        panelItems = new PanelItems(new PanelItemsModel());
+
+        panelItems = new PanelItems(new DefaultListModel());
         panelMenu = new JPanel();
         panelDetails= new JPanel();
 
@@ -41,7 +42,7 @@ public class Application extends JFrame{
 
                 Timer timer = new Timer(1000, new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        frame.panelItems.getModel().addTextItem(new TextItem());
+                        frame.panelItems.addNewItem(new TextItem());
                     }
                 });
                 timer.start();
