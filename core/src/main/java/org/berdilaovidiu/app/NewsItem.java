@@ -1,5 +1,6 @@
 package org.berdilaovidiu.app;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -13,7 +14,8 @@ public interface NewsItem {
 
     public String getName();
 
-    public List<NewsItemSection> getSections();
+    public URI getURI();
 
-    public NewsItemSection getSection(String title);
+    public String getContent();
+
 }

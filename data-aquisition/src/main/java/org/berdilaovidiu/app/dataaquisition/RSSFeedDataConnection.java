@@ -6,15 +6,14 @@ import org.apache.commons.feedparser.network.ResourceRequest;
 import org.apache.commons.feedparser.network.ResourceRequestFactory;
 import org.berdilaovidiu.app.NewsItem;
 import org.berdilaovidiu.app.NewsItemHandler;
-import org.berdilaovidiu.app.NewsItemSection;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -54,22 +53,30 @@ public class RSSFeedDataConnection implements DataConnection {
 
             public void onItem(final FeedParserState state,
                                final String title,
-                               String link,
+                               final String link,
                                String description,
                                String permalink) throws FeedParserException {
 
                 NewsItem item = new NewsItem() {
                     public String getName() {
+                        return title;
+                    }
+
+                    @Override
+                    public URI getURI() {
+                        URI result = null;
+                        try {
+                            result = new URI(link);
+                        } catch (URISyntaxException e) {
+                            e.printStackTrace();
+                        }
+                        return result;
+                    }
+
+                    @Override
+                    public String getContent() {
                         XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
-                        return outputter.outputString(state.current);
-                    }
-
-                    public List<NewsItemSection> getSections() {
-                        return new ArrayList<NewsItemSection>();  //To change body of implemented methods use File | Settings | File Templates.
-                    }
-
-                    public NewsItemSection getSection(String title) {
-                        return null;  //To change body of implemented methods use File | Settings | File Templates.
+                        return outputter.outputString(state.current.getContent());
                     }
                 };
                 handler.handleNews(item);

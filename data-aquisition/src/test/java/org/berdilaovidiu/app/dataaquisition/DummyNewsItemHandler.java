@@ -14,10 +14,22 @@ import org.berdilaovidiu.app.NewsItemSection;
 public class DummyNewsItemHandler implements NewsItemHandler {
     public void handleNews(NewsItem item) {
         System.out.println("ITEM NAME : " + item.getName());
-        for (NewsItemSection section : item.getSections()) {
-            System.out.println("Section : " + section.getTitle());
-            System.out.println("Content : " + section.getContent());
-        }
+        System.out.println("URI : " + item.getURI());
+        System.out.println("Content : " + getText(item.getContent()));
+
         System.out.println("\n\n\n\n");
+    }
+
+    private String getText(String sPage) {
+        sPage = sPage.replaceAll("<(script|SCRIPT)[^>]*>[^(</)]+</(script|SCRIPT)>", " ");
+        sPage = sPage.replaceAll("<(style|STYLE)[^>]*>[^(</)]+</(style|STYLE)>", " ");
+        sPage = sPage.replaceAll("<[^>]*>", " ");
+        sPage = sPage.replaceAll("&amp;", "and");
+        sPage = sPage.replaceAll("&#[a-z\\d]", "");
+        sPage = sPage.replaceAll("&[a-z]+;", " ");
+        sPage = sPage.replaceAll("\\s+", " ");
+        sPage = sPage.replaceAll("[ \t\n\f\r]{2,}", "\n");
+
+        return sPage;
     }
 }

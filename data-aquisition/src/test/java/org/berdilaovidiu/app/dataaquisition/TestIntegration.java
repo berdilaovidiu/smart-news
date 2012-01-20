@@ -8,10 +8,11 @@ package org.berdilaovidiu.app.dataaquisition;
  * To change this template use File | Settings | File Templates.
  */
 public class TestIntegration {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         String configFileName = "datasource.xml";
         ConfigSource configSource = new XMLConfigSource(configFileName);
         DataConnectionManager connectionManager = new DataConnectionManager(configSource);
         connectionManager.subscribeToAllSources(new DummyNewsItemHandler());
+        Thread.sleep(10000);
     }
 }
