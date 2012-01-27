@@ -25,12 +25,13 @@ public class IntegrationTest {
                 String configFileName = "datasource.xml";
                 ConfigSource configSource = new XMLConfigSource(configFileName);
                 connectionManager = new DataConnectionManager(configSource);
+                connectionManager.subscribeToAllSources(newsHandler);
             }
 
             @Override
             public void run() {
                 while (true) {
-                    connectionManager.subscribeToAllSources(newsHandler);
+
                 }
 
             }

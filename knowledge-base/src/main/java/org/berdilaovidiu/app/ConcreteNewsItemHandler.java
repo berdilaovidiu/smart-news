@@ -17,10 +17,7 @@ import org.ontoware.text2onto.algorithm.taxonomic.instanceOf.PatternInstanceClas
 import org.ontoware.text2onto.algorithm.taxonomic.subclassOf.PatternConceptClassification;
 import org.ontoware.text2onto.algorithm.taxonomic.subclassOf.VerticalRelationsConceptClassification;
 import org.ontoware.text2onto.algorithm.taxonomic.subclassOf.WordNetConceptClassification;
-import org.ontoware.text2onto.corpus.Corpus;
-import org.ontoware.text2onto.corpus.CorpusException;
-import org.ontoware.text2onto.corpus.CorpusFactory;
-import org.ontoware.text2onto.corpus.DocumentFactory;
+import org.ontoware.text2onto.corpus.*;
 import org.ontoware.text2onto.ontology.OWLWriter;
 import org.ontoware.text2onto.ontology.OntologyWriter;
 import org.ontoware.text2onto.pom.POM;
@@ -139,7 +136,9 @@ public class ConcreteNewsItemHandler implements NewsItemHandler {
         //TODO  give text to a terms extraction engine
         try {
             System.out.println("URI : " + item.getURI());
-            corpus.addDocument(DocumentFactory.newDocument(item.getURI()));
+            AbstractDocument abstractDocument = DocumentFactory.newDocument(AbstractDocument.class, item.getURI());
+            abstractDocument.setContent(item.getContent());
+            corpus.addDocument(abstractDocument);
         } catch (CorpusException e) {
             e.printStackTrace();
         }
