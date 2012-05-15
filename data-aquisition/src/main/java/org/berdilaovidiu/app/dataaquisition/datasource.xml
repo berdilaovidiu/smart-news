@@ -1,26 +1,22 @@
-<datasources>
-    <datasource name="piticigratis" category="Fun">
-        <description>blog about random stuff</description>
-        <connection type="RSS" link="http://www.piticigratis.com/feed/"/>
-    </datasource>
 
-    <datasource name="Art News" category="Art">
-        <description>Reuters art news</description>
-        <connection type="RSS" link="http://feeds.reuters.com/reuters/artNews"/>
-    </datasource>
+    <datasources>
+        <datasource name="Art News" category="Art">
+            <description>Reuters art news</description>
+            <connection type="RSS" link="http://feeds.reuters.com/reuters/artNews"/>
+        </datasource>
 
-    <datasource name="Business News" category="Business">
-        <description>Reuters Business News</description>
-        <connection type="RSS" link="http://feeds.reuters.com/reuters/businessNews"/>
-    </datasource>
+        <datasource name="Business News" category="Business">
+            <description>Reuters Business News</description>
+            <connection type="RSS" link="http://feeds.reuters.com/reuters/businessNews"/>
+        </datasource>
 
-    <!--<datasource name="email_account1" category="Financial">-->
-        <!--<description>email account that receives news about bla bla</description>-->
-        <!--<connection type="EMAIL" address="address@provider.com" username="user" password="password"/>-->
-    <!--</datasource>-->
+        <datasource name="email_account1" category="Financial">
+            <description>email account that receives news about bla bla</description>
+            <connection type="EMAIL" address="address@provider.com" username="user" password="password"/>
+        </datasource>
 
-   <!--<datasource name="im_account1" category="Financial">-->
-        <!--<description>instant messaging account that receives news about bla bla</description>-->
-        <!--<connection type="IM" address="address@provider.com" username="user" password="password"/>-->
-    <!--</datasource>-->
-</datasources>
+        <datasource name="im_account1" category="Financial">
+            <description>instant messaging account that receives news about bla bla</description>
+            <connection type="IM" address="address@provider.com" username="user" password="password"/>
+        </datasource>
+    </datasources>

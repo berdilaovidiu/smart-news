@@ -2,20 +2,26 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>smart-news</artifactId>
         <groupId>org.berdilaovidiu.app</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <groupId>org.berdilaovidiu.app</groupId>
     <artifactId>knowledge-base</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>knowledge-base</name>
     <url>http://maven.apache.org</url>
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.berdilaovidiu.app</groupId>
@@ -60,6 +66,16 @@
             <groupId>org.jdom</groupId>
             <artifactId>jdom</artifactId>
             <version>1.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>maven-plugins</groupId>
+                    <artifactId>maven-cobertura-plugin</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>maven-plugins</groupId>
+                    <artifactId>maven-findbugs-plugin</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -90,11 +106,11 @@
             <artifactId>commons-logging</artifactId>
             <version>1.0.2</version>
         </dependency>
-        <dependency>
-            <groupId>aterm</groupId>
-            <artifactId>aterm</artifactId>
-            <version>1.6</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>aterm</groupId>-->
+            <!--<artifactId>aterm</artifactId>-->
+            <!--<version>1.6</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -124,51 +140,10 @@
         </dependency>
 
         <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-core</artifactId>
+            <groupId>com.owldl</groupId>
+            <artifactId>pellet</artifactId>
             <version>2.2.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-datatypes</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-jena</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-query</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-rules</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-el</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-owlapi</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>pellet</groupId>
-            <artifactId>pellet-owlapiv3</artifactId>
-            <version>1.0</version>
-        </dependency>
-
 
     </dependencies>
 </project>

@@ -14,6 +14,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+    <repositories>
+        <repository>
+            <id>on.cs.unibas.ch</id>
+            <name>DBIS Maven Releases Repository</name>
+            <url>http://on.cs.unibas.ch/maven/repository</url>
+        </repository>
+    </repositories>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

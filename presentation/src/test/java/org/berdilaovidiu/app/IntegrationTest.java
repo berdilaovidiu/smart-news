@@ -16,28 +16,28 @@ import java.io.IOException;
  */
 public class IntegrationTest {
     public static void main(String[] args) throws IOException, CorpusException {
-        final ConcreteNewsItemHandler newsHandler = new ConcreteNewsItemHandler();
-
-        Runnable runnable = new Runnable() {
-            private DataConnectionManager connectionManager;
-
-            {
-                String configFileName = "datasource.xml";
-                ConfigSource configSource = new XMLConfigSource(configFileName);
-                connectionManager = new DataConnectionManager(configSource);
-                connectionManager.subscribeToAllSources(newsHandler);
-            }
-
-            @Override
-            public void run() {
-                while (true) {
-
-                }
-
-            }
-        };
-
-        Thread aquisitionThread = new Thread(runnable);
-        aquisitionThread.start();
+//        final ConcreteNewsItemHandler newsHandler = new ConcreteNewsItemHandler();
+//
+//        Runnable runnable = new Runnable() {
+//            private DataConnectionManager connectionManager;
+//
+//            {
+//                String configFileName = "datasource.xml";
+//                ConfigSource configSource = new XMLConfigSource(configFileName);
+//                connectionManager = new DataConnectionManager(configSource);
+//                connectionManager.subscribeToAllSources(newsHandler);
+//            }
+//
+//            @Override
+//            public void run() {
+//                while (true) {
+//
+//                }
+//
+//            }
+//        };
+//
+//        Thread aquisitionThread = new Thread(runnable);
+//        aquisitionThread.start();
     }
 }
